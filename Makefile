@@ -1,12 +1,11 @@
-# must use system python
 PYTHON := /usr/bin/python3
 
 # get the version number
 WF_VERSION := $(shell $(PYTHON) src/__version__.py)
 
 # plist values
-WF_NAME := meme
-WF_CREATEDBY := NorthIsUp
+WF_NAME := alfred-books
+WF_CREATEDBY := hnspn
 WF_BUNDLEID := com.${WF_CREATEDBY}.${WF_NAME}
 WF_DISABLED := false
 WF_WEBADDRESS := github.com/${WF_CREATEDBY}
@@ -31,7 +30,7 @@ src: PACKAGES=-r requirements.txt
 src: src/.site-packages
 
 # install bin/.site-packages
-bin: PACKAGES=pip-tools==5.5.0
+bin: PACKAGES=pip-tools
 bin: bin/.site-packages
 
 pip-compile: bin
